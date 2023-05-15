@@ -18,7 +18,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictPropertyInitialization": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+
+    "paths": {
+      /* Framework core aliases */
+      "@core/app/*": [ "core/app/*" ],
+      "@core/compiler/*": [ "core/comiler/*" ],
+      "@core/router/*": [ "core/router/*" ],
+      "@core/querify/*": [ "core/querify/*" ],
+      "@core/component/*": [ "core/component/*" ],
+    },
+
   },
-  "include": [ "src" ]
+  "include": [ "src", "core" ]
 }
