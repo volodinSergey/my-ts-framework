@@ -1,0 +1,33 @@
+{
+    /* Main prettier settings */
+    "arrowParens": "avoid",
+    "useTabs": true,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none",
+    "singleAttributePerLine": true,
+
+    /* Sorting imports prettier settings */
+    "importOrder": [
+        "<THIRD_PARTY_MODULES>",
+
+        "^@/core/app/(.*)$",
+        "^@/core/compiler/(.*)$",
+        "^@/core/router/(.*)$",
+        "^@/core/querify/(.*)$",
+        "^@/core/componet/(.*)$",
+
+        "^@/entities/(.*)$",
+        "^@/features/(.*)$",
+        "^@/widgets/(.*)$",
+        "^@/router/(.*)$",
+        "^@/shared/(.*)$",
+        "^@/app/(.*)$",
+        "^../(.*)",
+        "^./(.*)",
+
+        "importOrderSeparation": true,
+        "importOrderSortSpecifiers": true
+    ]
+}

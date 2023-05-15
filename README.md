@@ -1,2 +1,3 @@
-# my-ts-framework
-My js-framework using TS
+# Frontend framework
+
+My frontend framework using pure TS
