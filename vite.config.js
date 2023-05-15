@@ -9,6 +9,14 @@ export default defineConfig({
             '@core/querify': '/core/querify',
             '@core/app': '/core/app',
             '@core/component': '/core/component',
+
+            /* Application aliases */
+            '@entities': '/src/entities',
+            '@features': '/src/features',
+            '@widgets': '/src/widgets',
+            '@app': '/src/app',
+            '@shared': '/src/shared',
+            '@router': '/src/router',
         },
     },
 })
