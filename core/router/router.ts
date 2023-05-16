@@ -41,12 +41,16 @@ export class Router implements IRouter {
 		window.addEventListener('popstate', () => this.#handleUrlChanging())
 	}
 
+	/**
+	 * @title Method [ #render]
+	 * @description Render function. Allows to render actual layout or page in current route
+	 */
 	#render(): void {
 		const view = new this.#currentRoute.component()
 
 		this.#rootElement.innerHTML = view.render()
 
-		console.log('rendered')
+		console.log('rendered') // for test renderring counts .....
 	}
 
 	/**
