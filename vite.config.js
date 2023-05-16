@@ -14,9 +14,10 @@ export default defineConfig({
             '@entities': '/src/entities',
             '@features': '/src/features',
             '@widgets': '/src/widgets',
+            '@views': '/src/views',
+            '@router': '/src/router',
             '@app': '/src/app',
             '@shared': '/src/shared',
-            '@router': '/src/router',
         },
     },
 })
