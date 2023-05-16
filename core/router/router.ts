@@ -18,13 +18,9 @@ export class Router implements IRouter {
 	}
 
 	/**
-	 * @title Method [ #handlePopstateBehavior]
-	 * @description Allows to handle popstateBehavior(it means when user visit app links)
+	 * @title Method [ #handleUrlChanging]
+	 * @description Allows to detect url changing, find currect path and set current route
 	 */
-	#handlePopstateBehavior(): void {
-		window.addEventListener('popstate', () => this.#handleUrlChanging())
-	}
-
 	#handleUrlChanging(): void {
 		const currentRoutePath = this.#getCurrentPath() || '/'
 
@@ -35,6 +31,14 @@ export class Router implements IRouter {
 		if (route) this.#currentRoute = route
 
 		this.#render()
+	}
+
+	/**
+	 * @title Method [ #handlePopstateBehavior]
+	 * @description Allows to handle popstateBehavior(it means when user visit app links)
+	 */
+	#handlePopstateBehavior(): void {
+		window.addEventListener('popstate', () => this.#handleUrlChanging())
 	}
 
 	#render(): void {
