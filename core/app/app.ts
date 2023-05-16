@@ -1,13 +1,24 @@
-import { IAppOptions } from "./app.interface"
+import { IApp, IAppOptions } from './app.interface'
+import { Router } from '@core/router/router'
+import { IRouter } from '@core/router/router.interface'
 
-export class App {
-    readonly #rootElement: HTMLElement
+export class App implements IApp {
+	readonly #rootElement: HTMLElement
+	readonly #router: IRouter
 
-    constructor(options: IAppOptions) {
-        this.#rootElement = document.querySelector(options.rootElement) as HTMLElement
-    }
+	constructor({ rootElement }: IAppOptions) {
+		this.#rootElement = document.querySelector(rootElement) as HTMLElement
 
-    run () {
+		this.#router = new Router({
+			rootElement: this.#rootElement
+		})
+	}
 
-    }
+	run() {
+		this.#useRouter()
+	}
+
+	#useRouter() {
+		this.#router.init()
+	}
 }
