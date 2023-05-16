@@ -1,5 +1,12 @@
-
+/**
+ * @title IApp
+ * @description Describes app
+ */
 export interface IApp {
+	/**
+	 * @title Method [ run ]
+	 * @description Runs application and executes all the actions inside (Init router, settings etc....)
+	 */
 	run(): void
 }
 
