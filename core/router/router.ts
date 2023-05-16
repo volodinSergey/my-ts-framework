@@ -1,4 +1,5 @@
-import { IRoute, IRouter, IRouterOptions } from './router.interface'
+import { IRoute, IRouter, IRouterOptions } from './router.interface';
+
 
 export class Router implements IRouter {
 	readonly #rootElement: HTMLElement
@@ -57,6 +58,11 @@ export class Router implements IRouter {
 		}
 	}
 
+	/**
+	 * @title Method [ #getCurrentpath ]
+	 * @description Allows to get current url path ('/' ,'/about', '/ingo' etc...)
+	 * @returns  Current url path
+	 */
 	#getCurrentPath(): string {
 		return window.location.pathname
 	}
