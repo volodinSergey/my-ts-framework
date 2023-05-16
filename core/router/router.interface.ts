@@ -22,6 +22,10 @@ export interface IRouter {
 	init: () => void
 }
 
+	/**
+	 * @title IRoute
+	 * @description Describes the parts of each route
+	 */
 export interface IRoute {
 	path: string
 	component: new () => IBaseComponent
