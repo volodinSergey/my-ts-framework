@@ -1,5 +1,4 @@
-import { IRoute, IRouter, IRouterOptions } from './router.interface';
-
+import { IRoute, IRouter, IRouterOptions } from './router.interface'
 
 export class Router implements IRouter {
 	readonly #rootElement: HTMLElement
@@ -23,9 +22,7 @@ export class Router implements IRouter {
 			(route: IRoute) => route.path === currentRoutePath
 		)
 
-		if (route) {
-			this.#currentRoute = route
-		}
+		if (route) this.#currentRoute = route
 
 		this.#render()
 	}
@@ -38,6 +35,10 @@ export class Router implements IRouter {
 		console.log('rendered')
 	}
 
+	/**
+	 * @title Method [ #normalizeLinksBehavior ]
+	 * @description Allows to cancel default link behavior to prevent page reload and visit link content without page reload
+	 */
 	#normalizeLinksBehavior(): void {
 		document.addEventListener('click', (event: Event) => {
 			const target = event.target
