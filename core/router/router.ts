@@ -1,4 +1,5 @@
-import { IRoute, IRouter, IRouterOptions } from './router.interface'
+import { IRoute, IRouter, IRouterOptions } from './router.interface';
+
 
 export class Router implements IRouter {
 	readonly #rootElement: HTMLElement
@@ -13,6 +14,15 @@ export class Router implements IRouter {
 
 	init(): void {
 		this.#handleUrlChanging()
+		this.#handlePopstateBehavior()
+	}
+
+	/**
+	 * @title Method [ #handlePopstateBehavior]
+	 * @description Allows to handle popstateBehavior(it means when user visit app links)
+	 */
+	#handlePopstateBehavior(): void {
+		window.addEventListener('popstate', () => this.#handleUrlChanging())
 	}
 
 	#handleUrlChanging(): void {
