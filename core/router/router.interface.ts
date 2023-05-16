@@ -1,4 +1,5 @@
-import { IBaseComponent } from '@core/component/base-component.interface'
+import { IBaseComponent } from '@core/component/base-component.interface';
+
 
 /**
  * @title IRouterOptions
@@ -9,7 +10,15 @@ export interface IRouterOptions {
 	routes: IRoute[]
 }
 
+/**
+ * @title IRouter
+ * @description Describes router
+ */
 export interface IRouter {
+	/**
+	 * @title Method [ init ]
+	 * @description Inits router and executes a list of actions during render
+	 */
 	init: () => void
 }
 
