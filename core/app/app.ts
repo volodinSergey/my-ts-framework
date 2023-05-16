@@ -12,11 +12,16 @@ export class App implements IApp {
 		this.#rootElement = document.querySelector(rootElement) as HTMLElement
 	}
 
-	run() {
+	run(): void {
 		this.#initRouter()
 	}
 
-	useRoutes(routes: IRoute[]) {
+	/**
+	 * @title Method [ useRoutes ]
+	 * @description Takes a list of routes, saves and then routen can get this routes list during initialization
+	 * @param routes Routes list
+	 */
+	useRoutes(routes: IRoute[]): IApp {
 		this.#routes = routes
 
 		return this
@@ -26,7 +31,7 @@ export class App implements IApp {
 	 * @title Method [ #initRouter ]
 	 * @description Creates router instance with router options and init router during application runs
 	 */
-	#initRouter() {
+	#initRouter(): void {
 		this.#router = new Router({
 			rootElement: this.#rootElement,
 			routes: this.#routes
