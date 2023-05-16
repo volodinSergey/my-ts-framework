@@ -1,24 +1,32 @@
 import { IApp, IAppOptions } from './app.interface'
 import { Router } from '@core/router/router'
-import { IRouter } from '@core/router/router.interface'
+import { IRoute, IRouter } from '@core/router/router.interface'
 
 export class App implements IApp {
 	readonly #rootElement: HTMLElement
-	readonly #router: IRouter
+	#router: IRouter
+	#routes: IRoute[]
 
 	constructor({ rootElement }: IAppOptions) {
 		this.#rootElement = document.querySelector(rootElement) as HTMLElement
-
-		this.#router = new Router({
-			rootElement: this.#rootElement
-		})
 	}
 
 	run() {
-		this.#useRouter()
+		this.#initRouter()
 	}
 
-	#useRouter() {
+	useRoutes(routes: IRoute[]) {
+		this.#routes = routes
+	
+		return this
+	}
+
+	#initRouter() {
+		this.#router = new Router({
+			rootElement: this.#rootElement,
+			routes: this.#routes
+		})
+
 		this.#router.init()
 	}
 }
