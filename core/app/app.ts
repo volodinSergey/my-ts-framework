@@ -1,6 +1,7 @@
-import { IApp, IAppOptions } from './app.interface'
-import { Router } from '@core/router/router'
-import { IRoute, IRouter } from '@core/router/router.interface'
+import { IApp, IAppOptions } from './app.interface';
+import { Router } from '@core/router/router';
+import { IRoute, IRouter } from '@core/router/router.interface';
+
 
 export class App implements IApp {
 	readonly #rootElement: HTMLElement
@@ -17,10 +18,14 @@ export class App implements IApp {
 
 	useRoutes(routes: IRoute[]) {
 		this.#routes = routes
-	
+
 		return this
 	}
 
+	/**
+	 * @title Method [ #initRouter ]
+	 * @description Creates router instance with router options and init router during application runs
+	 */
 	#initRouter() {
 		this.#router = new Router({
 			rootElement: this.#rootElement,
