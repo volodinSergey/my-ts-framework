@@ -69,6 +69,11 @@ export class Router implements IRouter {
 		})
 	}
 
+	/**
+	 * @title Method [ #navigate]
+	 * @description Navigates through the link and trigger handleUrlChanging what allows us change url and run rendering actual laytout or page
+	 * @param path Where to go when click the link
+	 */
 	#navigate(path: string): void {
 		if (path !== this.#getCurrentPath()) {
 			window.history.pushState({}, '', path)
