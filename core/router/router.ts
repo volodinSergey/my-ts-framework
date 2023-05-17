@@ -1,5 +1,4 @@
 import { IRoute, IRouter, IRouterOptions } from './router.interface'
-import { IBaseComponent } from '@core/component/base-component.abstract.interface'
 
 export class Router implements IRouter {
 	readonly #rootElement: HTMLElement
