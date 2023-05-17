@@ -10,14 +10,16 @@ export class MainLayout extends BaseComponent {
 		super()
 
 		this.#state = this.useState({
-			counter: 0
+			counter: Number(localStorage.getItem('counter')) || 0
 		})
 	}
 
 	onButtonClick() {
-		this.#state.counter +=1
-			const heading = document.querySelector('.header') as HTMLElement
-			heading.textContent = this.#state.counter
+		this.#state.counter += 1
+		localStorage.setItem('counter', this.#state.counter )
+
+		const heading = document.querySelector('.header') as HTMLElement
+		heading.textContent = this.#state.counter
 
 		this.render()
 	}
@@ -27,11 +29,7 @@ export class MainLayout extends BaseComponent {
 
 		const button = element.querySelector('.button') as HTMLButtonElement
 
-		button.addEventListener('click', () => {
-			const heading = element.querySelector('.header') as HTMLElement
-
-			this.onButtonClick()
-		})
+		button.addEventListener('click', () => this.onButtonClick())
 
 		return element
 	}
