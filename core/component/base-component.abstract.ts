@@ -1,11 +1,13 @@
-import { IBaseComponent } from './base-component.abstract.interface';
-
+import { IBaseComponent } from './base-component.abstract.interface'
+import { Compiler } from '../compiler/compiler'
 
 export abstract class BaseComponent implements IBaseComponent {
-	protected readonly props: string
-
-	constructor(props: string) {
+	protected readonly props: string | undefined
+	 readonly compiler
+	
+	constructor(props?: string) {
 		this.props = props
+		this.compiler =  new Compiler()
 	}
 
 	useState(state: Record<string, any>) {
