@@ -27,5 +27,6 @@ export interface IRouter {
  */
 export interface IRoute {
 	path: string
-	component: new (parentElement: HTMLElement, props?: string) => IBaseComponent
+	component: new (props?: string) => IBaseComponent
+	layout?: new (props?: string) => IBaseComponent
 }
