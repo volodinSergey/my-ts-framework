@@ -1,4 +1,4 @@
-import { IBaseComponent } from '@core/component/base-component.interface'
+import { IBaseComponent } from '@core/component/base-component.abstract.interface'
 
 export class AboutView implements IBaseComponent {
 	render() {
