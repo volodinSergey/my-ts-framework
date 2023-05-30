@@ -3,6 +3,13 @@ import { IBaseComponent } from 'src/framework-core/component/base-component.abst
 export class Compiler {
 	readonly #TAG_PATTERN: RegExp = /^component-/
 
+	/**
+	 * @title Method [ compile ]
+	 * @description Main compiling process
+	 * @param  htmlString Html string with classic tags and custom tags
+	 * @param componentsList  Components list that wll be replaced instead of custom tags
+	 * @return Ready-to-use compiled component
+	 */
 	compile(htmlString: string, componentsList: IBaseComponent[]): HTMLElement {
 		const template = document.createElement('template')
 
