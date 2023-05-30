@@ -7,6 +7,7 @@ export default defineConfig({
             '@core/router': '/src/framework-core/router',
             '@core/compiler': '/src/framework-core/compiler',
             '@core/querify': '/src/framework-core/querify',
+            '@core/store': '/src/framework-core/store',
             '@core/services': '/src/framework-core/services',
             '@core/app': '/src/framework-core/app',
             '@core/component': '/src/framework-core/component',
