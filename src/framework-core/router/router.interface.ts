@@ -1,4 +1,4 @@
-import { IBaseComponent } from '@core/component/base-component.abstract.interface'
+import { IBaseComponent } from 'src/framework-core/component/base-component.abstract.interface'
 
 /**
  * @title IRouterOptions

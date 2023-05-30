@@ -1,5 +1,5 @@
 import html from './header.component.html?raw'
-import { BaseComponent } from '@core/component/base-component.abstract'
+import { BaseComponent } from 'src/framework-core/component/base-component.abstract'
 
 export class Header extends BaseComponent {
 	constructor(props) {

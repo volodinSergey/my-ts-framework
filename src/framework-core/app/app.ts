@@ -1,6 +1,7 @@
-import { IApp, IAppOptions } from './app.interface';
-import { Router } from '@core/router/router';
-import { IRoute, IRouter } from '@core/router/router.interface';
+import { Router } from '@core/router/router'
+
+import { IRouter, IRoute } from '@core/router/router.interface'
+import { IApp, IAppOptions } from './app.interface'
 
 
 export class App implements IApp {

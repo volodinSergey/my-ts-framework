@@ -1,5 +1,7 @@
-import html from './about.component.html?raw'
 import { BaseComponent } from '@core/component/base-component.abstract'
+
+import html from './about.component.html?raw'
+
 
 export class AboutView extends BaseComponent {
 	render(): HTMLElement {

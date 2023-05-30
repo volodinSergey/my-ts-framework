@@ -18,7 +18,7 @@ export class Router implements IRouter {
 
 	/**
 	 * @title Method [ #handleUrlChanging]
-	 * @description Allows to detect url changing, find currect path and set current route
+	 * @description Allows to detect url changing, find current path and set current route
 	 */
 	#handleUrlChanging(): void {
 		const currentRoutePath = this.#getCurrentPath() || '/'
@@ -51,6 +51,7 @@ export class Router implements IRouter {
 		if (layout) {
 			const layoutContent = layout.render()
 			const contentSlot = layoutContent.querySelector('main') as HTMLElement
+			
 			contentSlot.append(viewContent)
 
 			this.#rootElement.innerHTML = ''
