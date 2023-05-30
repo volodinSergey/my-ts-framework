@@ -1,5 +1,4 @@
-import { IBaseComponent } from 'src/framework-core/component/base-component.abstract.interface';
-
+import { IBaseComponent } from 'src/framework-core/component/base-component.abstract.interface'
 
 export class Compiler {
 	readonly #TAG_PATTERN: RegExp = /^component-/
@@ -9,7 +8,7 @@ export class Compiler {
 
 		template.innerHTML = htmlString.trim()
 
-		const element = template.content.firstChild as HTMLFormElement
+		const element = template.content.firstChild as HTMLElement
 
 		this.#replaceComponentTags(element, componentsList)
 
@@ -21,20 +20,31 @@ export class Compiler {
 
 		Array.from(allElements).forEach((element) => {
 			if (this.#TAG_PATTERN.test(element.tagName.toLowerCase())) {
-				const pureName = element.tagName.toLowerCase().replace(this.#TAG_PATTERN, '').replace(/-/g, '')
-				console.log(pureName)
 
-				const foundComponent = componentsList.find((component) => {
-					return component.constructor.name.toLowerCase() === pureName
-				})
+				const pureName = this.#extractPureComponentName(element)
+
+				const foundComponent = componentsList.find(component => component.constructor.name.toLowerCase() === pureName)
 
 				if (foundComponent) {
 					const componentContent = foundComponent.render()
+
 					element.replaceWith(componentContent)
 				}
-
-				console.log(foundComponent)
 			}
 		})
+	}
+
+	/**
+	 * @title Method [ #extractPureComponentName ]
+	 * @description Allows to get pure component name from custom tag
+	 * @example <component-header> => header | <component-user> => user
+	 * @param element custom tag element | <component-header><component-header>
+	 * @returns pure component name as string
+	 */
+	#extractPureComponentName(element: Element): string {
+		return element.tagName
+			.toLowerCase()
+			.replace(this.#TAG_PATTERN, '')
+			.replace(/-/g, '')
 	}
 }
