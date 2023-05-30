@@ -27,6 +27,7 @@
       "@core/app/*": [ "src/framework-core/app/*" ],
       "@core/compiler/*": [ "src/framework-core/compiler/*" ],
       "@core/router/*": [ "src/framework-core/router/*" ],
+      "@core/store/*": [ "src/framework-core/store/*" ],
       "@core/services/*": [ "src/framework-core/services/*" ],
       "@core/querify/*": [ "src/framework-core/querify/*" ],
       "@core/component/*": [ "src/framework-core/component/*" ],
