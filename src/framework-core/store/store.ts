@@ -15,8 +15,8 @@ export class Store implements IStore {
 
                 target[prop] = value
 
-                this.#observers.forEach(observer => observer.update())
-                
+                this.#notify()
+
                 return true
             }
         })
@@ -24,6 +24,10 @@ export class Store implements IStore {
 
     addObserver(component: IBaseComponent): void {
         this.#observers.push(component)
+    }
+
+    #notify(): void {
+        this.#observers.forEach(observer => observer.update ? observer.update() : null)
     }
 
     get state() {

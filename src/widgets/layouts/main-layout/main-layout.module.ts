@@ -18,7 +18,7 @@ export class MainLayout extends BaseComponent {
 		counterStore.state.counter += 1
 	}
 
-	update() {
+	update(): void {
 		const counter = document.querySelector('.header') as HTMLElement
 
 		counter.textContent = counterStore.state.counter
