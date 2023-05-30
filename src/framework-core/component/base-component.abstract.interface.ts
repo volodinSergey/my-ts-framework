@@ -12,3 +12,5 @@ export class IBaseComponent {
  */
 	render: () => HTMLElement
 }
+
+export type TProps = Record<string, any>

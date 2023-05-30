@@ -1,13 +1,13 @@
 import { Compiler } from '../compiler/compiler';
-import { IBaseComponent } from './base-component.abstract.interface';
+import { IBaseComponent, TProps } from './base-component.abstract.interface';
 
 export abstract class BaseComponent implements IBaseComponent {
-	protected readonly props: string | undefined // !TOOO : props must be an empty object by default. NOT STRING OR UNDEFINED
+	protected readonly props: TProps = {} 
 
 	/*Each component has built-in compiler */
 	readonly compiler
 
-	constructor(props?: string) { // !TOOO : props must be an empty object by default. NOT STRING OR UNDEFINED
+	constructor(props = {}) {
 		this.props = props
 		this.compiler = new Compiler()
 	}

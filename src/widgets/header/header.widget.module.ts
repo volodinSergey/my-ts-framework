@@ -1,15 +1,21 @@
+import { BaseComponent } from '@core/component/base-component.abstract'
+
+import { TProps } from '@core/component/base-component.abstract.interface'
+
 import html from './header.component.html?raw'
-import { BaseComponent } from 'src/framework-core/component/base-component.abstract'
+
 
 export class Header extends BaseComponent {
-	constructor(props) {
+	constructor(props: TProps) {
 		super(props)
 	}
 	render(): HTMLElement {
-	
+		const { text } = this.props
+
 		const element = this.compiler.compile(html, [])
+
+		element.textContent = text
 		
-		element.textContent = this.props as string
 		return element
 	}
 }

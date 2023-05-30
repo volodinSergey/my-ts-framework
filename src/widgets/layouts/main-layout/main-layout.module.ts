@@ -1,17 +1,17 @@
+
 import { BaseComponent } from '@core/component/base-component.abstract'
-import { IBaseComponent } from '@core/component/base-component.abstract.interface'
 
 import html from './main-layout.component.html?raw'
 import './main-layout.styles.scss'
-export class MainLayout extends BaseComponent {
-	#componentsList: IBaseComponent[] = []
+import { Header } from '@widgets/header/header.widget.module'
 
-	constructor() {
-		super()
-	}
+
+export class MainLayout extends BaseComponent {
 
 	render(): HTMLElement {
-		const element = this.compiler.compile(html, this.#componentsList)
+		const element = this.compiler.compile(html, [
+			new Header({ text: 'Something text' })
+		])
 
 		return element
 	}
