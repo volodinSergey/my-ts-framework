@@ -1,7 +1,12 @@
-import { IBaseComponent } from '@core/component/base-component.interface'
+import { BaseComponent } from '@core/component/base-component.abstract'
 
-export class AboutView implements IBaseComponent {
-	render() {
-		return '<h1>I am about page</h1> <a href="/"> GO to home page</a>'
+import html from './about.component.html?raw'
+
+
+export class AboutView extends BaseComponent {
+	render(): HTMLElement {
+		const element = this.compiler.compile(html, [])
+
+		return element
 	}
 }
