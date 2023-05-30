@@ -1,11 +1,11 @@
 import { IBaseComponent } from "@core/component/base-component.abstract.interface"
 import { IStore, IStoreState } from "./store.interface"
 
-export class Store implements IStore {
+export class Store<T extends IStoreState> implements IStore {
     #observers: IBaseComponent[] = []
-    #state: IStoreState = {}
+    #state: T
 
-    constructor(state: IStoreState) {
+    constructor(state: T ) {
         this.#state = new Proxy(state, {
             get(target, prop: string) {
                 return target[prop]
