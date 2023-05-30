@@ -15,6 +15,12 @@ export class Compiler {
 		return element
 	}
 
+	/**
+	 * @title Method [ #replaceComponentTags ]
+	 * @description Finds custom tags (<component-header> for example) and replaces them to real components from components list
+	 * @param parentElement Parent component
+	 * @param componentsList  ComponentsList that wll be replaced 
+	 */
 	#replaceComponentTags(parentElement: HTMLElement, componentsList: IBaseComponent[]) {
 		const allElements = parentElement.getElementsByTagName('*') as HTMLCollectionOf<Element>
 
