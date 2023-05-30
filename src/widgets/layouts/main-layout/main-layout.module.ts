@@ -1,10 +1,11 @@
 import { BaseComponent } from '@core/component/base-component.abstract'
 import { Header } from '@widgets/header/header.widget.module'
 
+import { counterStore } from '@entities/counter/counter.store'
+
 import html from './main-layout.component.html?raw'
 import './main-layout.styles.scss'
 
-import { counterStore } from '@entities/counter.store'
 export class MainLayout extends BaseComponent {
 
 	constructor() {
@@ -14,7 +15,7 @@ export class MainLayout extends BaseComponent {
 	}
 
 	onCLickButton(): void {
-		counterStore.state.counter
+		counterStore.state.increaseCounter()
 	}
 
 	update(): void {
