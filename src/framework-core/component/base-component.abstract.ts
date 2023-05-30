@@ -1,7 +1,6 @@
 import { Compiler } from '../compiler/compiler';
 import { IBaseComponent } from './base-component.abstract.interface';
 
-
 export abstract class BaseComponent implements IBaseComponent {
 	protected readonly props: string | undefined
 	readonly compiler
