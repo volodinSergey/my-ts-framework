@@ -1,6 +1,7 @@
 import { IBaseComponent } from 'src/framework-core/component/base-component.abstract.interface'
 
 export class Compiler {
+	/* TAG PATTERN is used in custom tags | <component-card> for example */
 	readonly #TAG_PATTERN: RegExp = /^component-/
 
 	/**
