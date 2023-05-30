@@ -1,5 +1,4 @@
-import { IBaseComponent } from '@core/component/base-component.interface';
-
+import { IBaseComponent } from 'src/framework-core/component/base-component.abstract.interface'
 
 /**
  * @title IRouterOptions
@@ -22,11 +21,12 @@ export interface IRouter {
 	init: () => void
 }
 
-	/**
-	 * @title IRoute
-	 * @description Describes the parts of each route
-	 */
+/**
+ * @title IRoute
+ * @description Describes the parts of each route
+ */
 export interface IRoute {
 	path: string
-	component: new () => IBaseComponent
+	component: new (props?: string) => IBaseComponent
+	layout?: new (props?: string) => IBaseComponent
 }

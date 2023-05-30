@@ -7,6 +7,7 @@
     "semi": false,
     "trailingComma": "none",
     "singleAttributePerLine": true,
+    "printWidth": 170,
 
     /* Sorting imports prettier settings */
     "importOrder": [

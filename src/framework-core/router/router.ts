@@ -1,5 +1,4 @@
-import { IRoute, IRouter, IRouterOptions } from './router.interface';
-
+import { IRoute, IRouter, IRouterOptions } from './router.interface'
 
 export class Router implements IRouter {
 	readonly #rootElement: HTMLElement
@@ -19,14 +18,12 @@ export class Router implements IRouter {
 
 	/**
 	 * @title Method [ #handleUrlChanging]
-	 * @description Allows to detect url changing, find currect path and set current route
+	 * @description Allows to detect url changing, find current path and set current route
 	 */
 	#handleUrlChanging(): void {
 		const currentRoutePath = this.#getCurrentPath() || '/'
 
-		let route = this.#routes.find(
-			(route: IRoute) => route.path === currentRoutePath
-		)
+		let route = this.#routes.find((route: IRoute) => route.path === currentRoutePath)
 
 		if (route) this.#currentRoute = route
 
@@ -47,10 +44,24 @@ export class Router implements IRouter {
 	 */
 	#render(): void {
 		const view = new this.#currentRoute.component()
+		const viewContent = view.render()
 
-		this.#rootElement.innerHTML = view.render()
+		const layout = this.#currentRoute.layout ? new this.#currentRoute.layout() : null
 
-		console.log('rendered') // for test renderring counts .....
+		if (layout) {
+			const layoutContent = layout.render()
+			const contentSlot = layoutContent.querySelector('main') as HTMLElement
+			
+			contentSlot.append(viewContent)
+
+			this.#rootElement.innerHTML = ''
+			this.#rootElement.append(layoutContent)
+
+			return
+		}
+
+		this.#rootElement.innerHTML = ''
+		this.#rootElement.append(viewContent)
 	}
 
 	/**
